@@ -17,8 +17,9 @@ function getPizza() {
   // get pizzaInfo
   fetch(`/api/pizzas/${pizzaId}`)
     .then(response => {
-      // check for a 4xx or 5xx error from server
+      console.log(response);
       if (!response.ok) {
+        console.log('hi');
         throw new Error({ message: 'Something went wrong!' });
       }
 
@@ -28,7 +29,7 @@ function getPizza() {
     .catch(err => {
       console.log(err);
       alert('Cannot find a pizza with this id! Taking you back.');
-      window.history.back()
+      window.history.back();
     });
 }
 
@@ -127,13 +128,12 @@ function handleNewCommentSubmit(event) {
     })
     .then(commentResponse => {
       console.log(commentResponse);
-      location.reload();
+      // location.reload();
     })
     .catch(err => {
       console.log(err);
     });
 }
-
 
 function handleNewReplySubmit(event) {
   event.preventDefault();

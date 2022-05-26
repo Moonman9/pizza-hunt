@@ -1,5 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
-const dateFormat = require('../utils/dateFormat')
+const dateFormat = require('../utils/dateFormat');
 
 const ReplySchema = new Schema(
   {
@@ -9,10 +9,12 @@ const ReplySchema = new Schema(
       default: () => new Types.ObjectId()
     },
     replyBody: {
-      type: String
+      type: String,
+      required: true
     },
     writtenBy: {
-      type: String
+      type: String,
+      required: true
     },
     createdAt: {
       type: Date,
